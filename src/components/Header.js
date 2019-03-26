@@ -5,15 +5,31 @@ import {
   SearchBarContainer
 } from '../styles/HeaderStyles';
 import { connect } from 'react-redux';
-import { getLatestFilms } from '../actions/filmActions';
+import { getLatestFilms, searchFilms } from '../actions/filmActions';
 
 import searchIcon from '../assets/searchIcon.png';
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: ''
+    };
+  }
   componentWillMount = () => {
     this.props.getLatestFilms();
   };
 
+  onChange = e => {
+    this.setState(
+      {
+        searchText: e.target.value
+      },
+      () => {
+        this.props.searchFilms(this.state.searchText);
+      }
+    );
+  };
   render() {
     return (
       <HeaderContainer>
@@ -26,7 +42,12 @@ class Header extends Component {
           }}
         />
 
-        <SearchBar placeholder="Search" />
+        <SearchBar
+          placeholder="Search"
+          onChange={this.onChange}
+          value={this.state.searchText}
+          name="searchText"
+        />
         {/* <img
             src={searchIcon}
             alt=""
@@ -39,5 +60,5 @@ class Header extends Component {
 
 export default connect(
   null,
-  { getLatestFilms }
+  { getLatestFilms, searchFilms }
 )(Header);
