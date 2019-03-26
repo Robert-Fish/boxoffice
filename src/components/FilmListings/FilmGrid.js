@@ -4,8 +4,10 @@ import {
   MoviePoster,
   MovieContainer,
   MovieTitle,
-  MovieReleaseDate
+  MovieReleaseDate,
+  PopularityBadge
 } from '../../styles/MovieGridStyles';
+import Moment from 'react-moment';
 
 export default class FilmGrid extends Component {
   constructor() {
@@ -37,9 +39,15 @@ export default class FilmGrid extends Component {
                     poster={
                       'http://image.tmdb.org/t/p/w185/' + film.poster_path
                     }
-                  />
+                  >
+                    <PopularityBadge>
+                      {film.vote_average * 10} %
+                    </PopularityBadge>
+                  </MoviePoster>
                   <MovieTitle>{film.title}</MovieTitle>
-                  <MovieReleaseDate>{film.}</MovieReleaseDate>
+                  <MovieReleaseDate>
+                    <Moment format="MMMM YYYY">{film.release_date}</Moment>
+                  </MovieReleaseDate>
                 </MovieContainer>
               </div>
             );
