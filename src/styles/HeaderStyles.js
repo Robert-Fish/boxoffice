@@ -7,17 +7,20 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 `;
 
 export const SearchBar = styled.input`
   color: #00d277;
   margin-top: 2rem;
   padding: 0.8rem 2rem;
+  width: 90vw;
   display: block;
   font-weight: bold;
+
   /* width: calc(100vw - 6rem); */
-  box-sizing: border-box;
-  width: 100%;
+  /* box-sizing: border-box; */
+
   border-radius: 20px;
   outline: none;
   border: none;
@@ -29,7 +32,11 @@ export const SearchBar = styled.input`
 
 export const SearchBarContainer = styled.div`
   position: relative;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
   width: calc(100vw - 2rem);
+
   img {
     position: absolute;
     top: 2.65rem;

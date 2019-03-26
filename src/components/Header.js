@@ -18,14 +18,13 @@ export default function Header() {
           width: '7rem'
         }}
       />
-      <SearchBarContainer>
-        <SearchBar placeholder="Search" />
-        <img
+
+      <SearchBar placeholder="Search" />
+      {/* <img
           src={searchIcon}
           alt=""
           style={{ width: '25px', height: '25px' }}
-        />
-      </SearchBarContainer>
+        /> */}
     </HeaderContainer>
   );
 }

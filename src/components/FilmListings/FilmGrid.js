@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { MovieContainer } from '../../styles/MovieGridStyles';
 
 export default class FilmGrid extends Component {
   constructor() {
@@ -25,8 +26,11 @@ export default class FilmGrid extends Component {
         <div className="row">
           {this.state.results.map(film => {
             return (
-              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                <p style={{ color: '#fff' }}>{film.title}</p>
+              <div className="col-xl-3 col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
+                <MovieContainer
+                  poster={'http://image.tmdb.org/t/p/w185/' + film.poster_path}
+                  key={film.id}
+                />
               </div>
             );
           })}
