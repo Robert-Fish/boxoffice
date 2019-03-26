@@ -1,5 +1,6 @@
 // Basic imports
 import React, { Component } from 'react';
+import './sass/App.scss';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Redux

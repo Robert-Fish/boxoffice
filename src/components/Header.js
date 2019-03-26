@@ -1,5 +1,11 @@
 import React from 'react';
-import { HeaderContainer } from '../styles/HeaderStyles';
+import {
+  HeaderContainer,
+  SearchBar,
+  SearchBarContainer
+} from '../styles/HeaderStyles';
+
+import searchIcon from '../assets/searchIcon.png';
 
 export default function Header() {
   return (
@@ -9,11 +15,17 @@ export default function Header() {
         alt=""
         style={{
           display: 'block',
-          margin: '0 auto',
-          width: '10rem',
-          marginTop: '1rem'
+          width: '7rem'
         }}
       />
+      <SearchBarContainer>
+        <SearchBar placeholder="Search" />
+        <img
+          src={searchIcon}
+          alt=""
+          style={{ width: '25px', height: '25px' }}
+        />
+      </SearchBarContainer>
     </HeaderContainer>
   );
 }
