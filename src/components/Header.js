@@ -4,21 +4,14 @@ import {
   SearchBar,
   SearchBarContainer
 } from '../styles/HeaderStyles';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getLatestFilms } from '../actions/filmActions';
 
 import searchIcon from '../assets/searchIcon.png';
 
-export default class Header extends Component {
+class Header extends Component {
   componentWillMount = () => {
-    axios
-      .get(
-        'https://api.themoviedb.org/3/discover/movie?api_key=6ed12e064b90ae1290fa326ce9e790ff&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
-      )
-      .then(res =>
-        this.setState({
-          results: res.data.results
-        })
-      );
+    this.props.getLatestFilms();
   };
 
   render() {
@@ -43,3 +36,8 @@ export default class Header extends Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { getLatestFilms }
+)(Header);
