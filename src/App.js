@@ -7,13 +7,14 @@ import { Provider } from 'react-redux';
 
 // Components
 import Header from './components/Header';
+import { Container } from './styles/GeneralStyles';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Container>
         <Header />
-      </div>
+      </Container>
     );
   }
 }
