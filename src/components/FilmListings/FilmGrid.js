@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import {
   MoviePoster,
   MovieContainer,
@@ -16,37 +16,24 @@ export default class FilmGrid extends Component {
       results: []
     };
   }
-  componentWillMount = () => {
-    axios
-      .get(
-        'https://api.themoviedb.org/3/discover/movie?api_key=6ed12e064b90ae1290fa326ce9e790ff&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1'
-      )
-      .then(res =>
-        this.setState({
-          results: res.data.results
-        })
-      );
-  };
+  componentWillMount = () => {};
   render() {
     return (
       <div className="container">
         <div className="row">
-          {this.state.results.map(film => {
+          {this.props.results.map(film => {
+            const { vote_average, title, release_date, poster_path } = film;
             return (
               <div className="col-xl-3 col-lg-2 col-md-4 col-sm-6 col-6 mb-4">
                 <MovieContainer key={film.id}>
                   <MoviePoster
-                    poster={
-                      'http://image.tmdb.org/t/p/w185/' + film.poster_path
-                    }
+                    poster={'http://image.tmdb.org/t/p/w185/' + poster_path}
                   >
-                    <PopularityBadge>
-                      {film.vote_average * 10} %
-                    </PopularityBadge>
+                    <PopularityBadge>{vote_average * 10} %</PopularityBadge>
                   </MoviePoster>
-                  <MovieTitle>{film.title}</MovieTitle>
+                  <MovieTitle>{title}</MovieTitle>
                   <MovieReleaseDate>
-                    <Moment format="MMMM YYYY">{film.release_date}</Moment>
+                    <Moment format="MMMM YYYY">{release_date}</Moment>
                   </MovieReleaseDate>
                 </MovieContainer>
               </div>

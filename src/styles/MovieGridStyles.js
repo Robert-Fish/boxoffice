@@ -14,6 +14,14 @@ export const MoviePoster = styled.div`
 export const MovieContainer = styled.div`
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+
+  transition: all ease-in-out 0.3s;
+
+  &:hover {
+    background: #00d277;
+    transform: scale(1.1);
+  }
 `;
 
 export const MovieTitle = styled.h1`
