@@ -1,10 +1,7 @@
 // Basic imports
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './sass/App.scss';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// Redux
-import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 // Components
 import Header from './components/Header';
@@ -13,9 +10,18 @@ import { Container } from './styles/GeneralStyles';
 class App extends Component {
   render() {
     return (
-      <Container>
-        <Header />
-      </Container>
+      <Router>
+        <Container>
+          <Route
+            path="/"
+            render={props => (
+              <Fragment>
+                <Header />
+              </Fragment>
+            )}
+          />
+        </Container>
+      </Router>
     );
   }
 }
