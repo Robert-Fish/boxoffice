@@ -14,9 +14,11 @@ export const SearchBar = styled.input`
   color: #00d277;
   margin-top: 2rem;
   padding: 0.8rem 2rem;
-  width: 90vw;
+  width: 95vw;
   display: block;
   font-weight: bold;
+  font-size: 1rem;
+  caret-color: #00d277;
 
   /* width: calc(100vw - 6rem); */
   /* box-sizing: border-box; */

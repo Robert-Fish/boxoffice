@@ -9,14 +9,20 @@ import store from './store';
 import Header from './components/Header';
 import { Container } from './styles/GeneralStyles';
 import FilmGrid from './components/FilmListings/FilmGrid';
+import FilmDetail from './components/FilmDetail';
+import { getLatestFilms } from './actions/filmActions';
 
 class App extends Component {
+  componentDidMount() {
+    store.dispatch(getLatestFilms());
+  }
   render() {
     return (
       <Provider store={store}>
         <Router>
           <Container>
             <Route
+              exact
               path="/"
               render={props => (
                 <Fragment>
@@ -25,6 +31,7 @@ class App extends Component {
                 </Fragment>
               )}
             />
+            <Route path="/listing/" component={FilmDetail} />
           </Container>
         </Router>
       </Provider>

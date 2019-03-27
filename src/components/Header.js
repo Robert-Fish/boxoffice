@@ -16,9 +16,6 @@ class Header extends Component {
       searchText: ''
     };
   }
-  componentWillMount = () => {
-    this.props.getLatestFilms();
-  };
 
   onChange = e => {
     this.setState(
@@ -26,6 +23,9 @@ class Header extends Component {
         searchText: e.target.value
       },
       () => {
+        if (this.state.searchText === '') {
+          this.props.getLatestFilms();
+        }
         this.props.searchFilms(this.state.searchText);
       }
     );

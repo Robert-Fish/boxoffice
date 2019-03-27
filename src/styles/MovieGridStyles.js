@@ -5,6 +5,7 @@ export const MoviePoster = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  border-radius: 10px;
 
   /* margin: 4rem auto; */
   height: 20rem;
@@ -15,11 +16,9 @@ export const MovieContainer = styled.div`
   display: flex;
   flex-direction: column;
   cursor: pointer;
-
   transition: all ease-in-out 0.3s;
 
   &:hover {
-    background: #00d277;
     transform: scale(1.1);
   }
 `;
@@ -44,5 +43,11 @@ export const PopularityBadge = styled.p`
   text-align: center;
   margin: 0.4rem 0.4rem;
   padding: 0.1rem;
+  font-weight: bold;
+`;
+
+export const LatestMoviesTitle = styled.p`
+  font-size: 2rem;
+  color: #e0f1fa;
   font-weight: bold;
 `;
