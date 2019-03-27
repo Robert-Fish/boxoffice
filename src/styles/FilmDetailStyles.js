@@ -10,18 +10,6 @@ export const BackdropContainer = styled.div`
   margin-top: 0;
 `;
 
-export const FilmDetailsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-
-  width: 95vw;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -11rem;
-  padding: 2rem;
-`;
-
 export const PosterContainer = styled.img`
   background-image: url(${props => props.poster});
   border-radius: 13px;
@@ -38,7 +26,7 @@ export const FilmDetails = styled.div`
 
 export const FilmTitle = styled.h1`
   font-size: 1.8rem;
-  margin-top: 3rem;
+  margin-top: 6rem;
   color: #e0f1fa;
   font-weight: bold;
 `;
@@ -46,4 +34,16 @@ export const FilmTitle = styled.h1`
 export const FilmInfoPoint = styled.p`
   font-size: 1rem;
   color: #a2c0cd;
+`;
+
+export const DetailTitle = styled.h1`
+  color: #e3f4fc;
+  font-weight: bold;
+  font-size: 2rem;
+`;
+
+export const FilmDetailPara = styled.p`
+  text-align: left;
+  font-size: 1.6rem;
+  color: #9fbcc7;
 `;

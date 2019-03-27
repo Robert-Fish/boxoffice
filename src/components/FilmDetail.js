@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import {
   BackdropContainer,
-  FilmDetailsContainer,
   PosterContainer,
   FilmDetails,
   FilmTitle,
-  FilmInfoPoint
+  FilmInfoPoint,
+  DetailTitle,
+  FilmDetailPara
 } from '../styles/FilmDetailStyles';
 import { withRouter } from 'react-router-dom';
 import { getFilmDetails } from '../actions/filmActions';
@@ -35,14 +36,15 @@ class FilmDetail extends Component {
       title,
       release_date,
       vote_average,
-      runtime
+      runtime,
+      overview
     } = this.props.selectedFilm;
     return (
       <Fragment>
         <BackdropContainer
           backdrop={`http://image.tmdb.org/t/p/w185/${backdrop_path}`}
         />
-        <FilmDetailsContainer>
+        <div className="container filmAboutContainer">
           <PosterContainer
             className="img-fluid"
             src={`http://image.tmdb.org/t/p/w185/${poster_path}`}
@@ -55,7 +57,12 @@ class FilmDetail extends Component {
             </FilmInfoPoint>
             <FilmInfoPoint>{this.convertMinutesToHours(runtime)}</FilmInfoPoint>
           </FilmDetails>
-        </FilmDetailsContainer>
+        </div>
+        <hr style={{ color: '#0f303d', height: '2rem' }} width="100%" />
+        <div className="container">
+          <DetailTitle>Overview</DetailTitle>
+          <FilmDetailPara>{overview}</FilmDetailPara>
+        </div>
       </Fragment>
     );
   }
