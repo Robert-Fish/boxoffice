@@ -7,7 +7,6 @@ export const HeaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
 `;
 
 export const SearchBar = styled.input`
@@ -15,7 +14,8 @@ export const SearchBar = styled.input`
   margin-top: 2rem;
 
   /* padding: 0.8rem 2rem; */
-  width: 95vw;
+  width: 90%;
+
   display: block;
   margin-left: auto;
   margin-right: auto;

@@ -12,11 +12,11 @@ export const BackdropContainer = styled.div`
 
 export const PosterContainer = styled.img`
   background-image: url(${props => props.poster});
-  border-radius: 13px;
+
   margin-right: 1rem;
-  -webkit-box-shadow: 10px 10px 31px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 31px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 31px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5), 0px 8px 16px rgba(0, 0, 0, 0.5),
+    0px 16px 32px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 `;
 
 export const FilmDetails = styled.div`
@@ -25,25 +25,44 @@ export const FilmDetails = styled.div`
 `;
 
 export const FilmTitle = styled.h1`
-  font-size: 1.8rem;
-  margin-top: 6rem;
-  color: #e0f1fa;
+  font-size: 1.75rem;
+  margin-top: 8rem;
+  color: #e3f4fc;
+
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  line-height: 2rem;
 `;
 
 export const FilmInfoPoint = styled.p`
-  font-size: 1rem;
-  color: #a2c0cd;
+  font-size: 0.75rem;
+
+  color: #b8d8e6;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 0.75rem;
 `;
 
 export const DetailTitle = styled.h1`
-  color: #e3f4fc;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.25rem;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.5rem;
+
+  color: #e3f4fc;
 `;
 
 export const FilmDetailPara = styled.p`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
   text-align: left;
-  font-size: 1.6rem;
-  color: #9fbcc7;
+  color: #9fbbc7;
 `;
