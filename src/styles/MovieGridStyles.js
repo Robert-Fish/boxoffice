@@ -6,7 +6,7 @@ export const MoviePoster = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 10px;
-
+  border: ${props => (props.poster === '' ? '1px solid #00d277' : '')};
   /* margin: 4rem auto; */
   height: 20rem;
   width: 100%;
@@ -36,7 +36,16 @@ export const MovieReleaseDate = styled(MovieTitle)`
 `;
 
 export const PopularityBadge = styled.p`
-  background: #00d277;
+  background: ${props => {
+    if (props.ratingLevel <= 3) {
+      return '#D1235b';
+    } else if (props.ratingLevel >= 3 && props.ratingLevel <= 7) {
+      return '#4900A3';
+    } else {
+      return '#00d277';
+    }
+  }};
+
   color: #ffff;
   width: 3.5rem;
   border-radius: 15px;
