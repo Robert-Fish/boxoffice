@@ -19,7 +19,7 @@ class FilmGrid extends Component {
       results: []
     };
   }
-  componentWillMount = () => {};
+
   render() {
     const { results } = this.props;
 
@@ -37,14 +37,18 @@ class FilmGrid extends Component {
               original_name
             } = film;
 
-            console.log(Math.round(vote_average));
             return (
               <div
                 className="col-xl-3 col-lg-2 col-md-4 col-sm-6 col-6 mb-4"
                 key={id}
               >
                 <Link
-                  to={{ pathname: `/listing/`, search: `?id=${id}` }}
+                  to={{
+                    pathname: `/listing/`,
+                    search: `?name=${
+                      title === undefined ? original_name : title
+                    }`
+                  }}
                   style={{ textDecoration: 'none' }}
                 >
                   <MovieContainer>

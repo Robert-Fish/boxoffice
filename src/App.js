@@ -13,9 +13,6 @@ import FilmDetail from './components/FilmDetail';
 import { getLatestFilms } from './actions/filmActions';
 
 class App extends Component {
-  componentDidMount() {
-    store.dispatch(getLatestFilms());
-  }
   render() {
     return (
       <Provider store={store}>

@@ -17,6 +17,10 @@ class Header extends Component {
     };
   }
 
+  componentWillMount = () => {
+    this.props.getLatestFilms();
+  };
+
   onChange = e => {
     this.setState(
       {
