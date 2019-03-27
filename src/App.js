@@ -13,6 +13,9 @@ import FilmDetail from './components/FilmDetail';
 import { getLatestFilms } from './actions/filmActions';
 
 class App extends Component {
+  componentWillMount = () => {
+    store.dispatch(getLatestFilms);
+  };
   render() {
     return (
       <Provider store={store}>

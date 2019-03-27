@@ -1,7 +1,8 @@
-import { GET_LATEST_FILMS, SEARCH_FILMS } from '../actions/types';
+import { GET_LATEST_FILMS, SEARCH_FILMS, GET_FILM } from '../actions/types';
 
 const initalState = {
-  results: []
+  results: [],
+  selectedFilm: {}
 };
 
 export default function(state = initalState, action) {
@@ -15,6 +16,12 @@ export default function(state = initalState, action) {
       return {
         ...state,
         results: action.payload
+      };
+
+    case GET_FILM:
+      return {
+        ...state,
+        selectedFilm: action.payload
       };
     default:
       return state;

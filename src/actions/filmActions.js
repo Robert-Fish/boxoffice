@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_LATEST_FILMS, SEARCH_FILMS } from './types';
+import { GET_LATEST_FILMS, SEARCH_FILMS, GET_FILM } from './types';
 import { apiKey } from '../keys';
 
 export const getLatestFilms = () => dispatch => {
@@ -26,4 +26,15 @@ export const searchFilms = queryText => dispatch => {
         payload: res.data.results
       })
     );
+};
+
+export const getFilmDetails = filmID => dispatch => {
+  return axios
+    .get(`https://api.themoviedb.org/3/movie/${filmID}?api_key=${apiKey}`)
+    .then(res => {
+      dispatch({
+        type: GET_FILM,
+        payload: res.data
+      });
+    });
 };

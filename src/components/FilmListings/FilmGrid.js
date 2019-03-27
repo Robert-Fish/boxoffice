@@ -45,9 +45,7 @@ class FilmGrid extends Component {
                 <Link
                   to={{
                     pathname: `/listing/`,
-                    search: `?name=${
-                      title === undefined ? original_name : title
-                    }`
+                    search: `?id=${id}`
                   }}
                   style={{ textDecoration: 'none' }}
                 >
