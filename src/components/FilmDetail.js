@@ -6,10 +6,12 @@ import {
   FilmTitle,
   FilmInfoPoint,
   DetailTitle,
-  FilmDetailPara
+  FilmDetailPara,
+  BackArrowIcon
 } from '../styles/FilmDetailStyles';
 import { withRouter } from 'react-router-dom';
 import { getFilmDetails } from '../actions/filmActions';
+import backArrow from '../assets/backArrow.svg';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 
@@ -39,8 +41,11 @@ class FilmDetail extends Component {
       runtime,
       overview
     } = this.props.selectedFilm;
+
+    const { history } = this.props;
     return (
       <Fragment>
+        <BackArrowIcon src={backArrow} onClick={() => history.goBack()} />
         <BackdropContainer
           backdrop={`http://image.tmdb.org/t/p/w185/${backdrop_path}`}
         />

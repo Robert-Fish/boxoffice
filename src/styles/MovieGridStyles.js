@@ -30,7 +30,7 @@ export const MovieTitle = styled.h1`
   font-size: 0.875rem;
   text-align: left;
   margin: 0.7rem 0 0rem 0;
-
+  text-transform: capitalize;
   font-family: Roboto;
 
   line-height: 1rem;

@@ -66,3 +66,10 @@ export const FilmDetailPara = styled.p`
   text-align: left;
   color: #9fbbc7;
 `;
+
+export const BackArrowIcon = styled.img`
+  position: absolute;
+  top: 2.195625rem;
+  left: 1.5rem;
+  cursor: pointer;
+`;
