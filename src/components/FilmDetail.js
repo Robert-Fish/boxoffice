@@ -17,9 +17,14 @@ import Moment from 'react-moment';
 
 class FilmDetail extends Component {
   componentWillMount = () => {
-    const selectedFilmID = this.props.location.search.slice(4);
+    const selectedFilmID = this.props.location.pathname.slice(12, 18);
 
-    this.props.getFilmDetails(parseInt(selectedFilmID));
+    const filmType = this.props.location.pathname.slice(
+      this.props.location.pathname.indexOf('type:') + 5
+    );
+    console.log(filmType);
+
+    this.props.getFilmDetails(parseInt(selectedFilmID), filmType);
   };
 
   convertMinutesToHours = minutes => {
@@ -39,7 +44,8 @@ class FilmDetail extends Component {
       release_date,
       vote_average,
       runtime,
-      overview
+      overview,
+      episode_run_time
     } = this.props.selectedFilm;
 
     const { history } = this.props;
@@ -60,7 +66,9 @@ class FilmDetail extends Component {
               <Moment format="YYYY">{release_date}</Moment> ·{' '}
               {vote_average * 10}% score
             </FilmInfoPoint>
-            <FilmInfoPoint>{this.convertMinutesToHours(runtime)}</FilmInfoPoint>
+            <FilmInfoPoint>
+              {runtime === undefined ? '' : this.convertMinutesToHours(runtime)}
+            </FilmInfoPoint>
           </FilmDetails>
         </div>
         <hr style={{ color: '#0f303d', height: '2rem' }} width="100%" />

@@ -28,13 +28,24 @@ export const searchFilms = queryText => dispatch => {
     );
 };
 
-export const getFilmDetails = filmID => dispatch => {
-  return axios
-    .get(`https://api.themoviedb.org/3/movie/${filmID}?api_key=${apiKey}`)
-    .then(res => {
-      dispatch({
-        type: GET_FILM,
-        payload: res.data
+export const getFilmDetails = (filmID, type) => dispatch => {
+  if (type === 'movie') {
+    return axios
+      .get(`https://api.themoviedb.org/3/movie/${filmID}?api_key=${apiKey}`)
+      .then(res => {
+        dispatch({
+          type: GET_FILM,
+          payload: res.data
+        });
       });
-    });
+  } else {
+    return axios
+      .get(`https://api.themoviedb.org/3/tv/${filmID}?api_key=${apiKey}`)
+      .then(res => {
+        dispatch({
+          type: GET_FILM,
+          payload: res.data
+        });
+      });
+  }
 };

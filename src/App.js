@@ -31,7 +31,7 @@ class App extends Component {
                 </Fragment>
               )}
             />
-            <Route path="/listing/" component={FilmDetail} />
+            <Route path="/listing/:filmid/:mediatype" component={FilmDetail} />
           </Container>
         </Router>
       </Provider>

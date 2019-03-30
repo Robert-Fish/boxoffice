@@ -34,7 +34,8 @@ class FilmGrid extends Component {
               release_date,
               poster_path,
               id,
-              original_name
+              original_name,
+              media_type
             } = film;
 
             return (
@@ -44,8 +45,13 @@ class FilmGrid extends Component {
               >
                 <Link
                   to={{
-                    pathname: `/listing/`,
-                    search: `?id=${id}`
+                    pathname: `/listing/id:${id}/type:${
+                      media_type !== undefined ? media_type : 'movie'
+                    }`
+
+                    // hash: `media_type=${
+                    //   media_type !== undefined ? media_type : 'movie'
+                    // }`
                   }}
                   style={{ textDecoration: 'none' }}
                 >
