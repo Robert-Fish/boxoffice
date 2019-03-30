@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import { getLatestFilms, searchFilms } from '../actions/filmActions';
 
+import logo from '../assets/logo.svg';
 import searchIcon from '../assets/searchIcon.png';
 
 class Header extends Component {
@@ -17,14 +18,15 @@ class Header extends Component {
     };
   }
 
-  componentWillMount = () => {
+  componentDidMount = () => {
     this.props.getLatestFilms();
   };
 
   onChange = e => {
+    const { value } = e.target;
     this.setState(
       {
-        searchText: e.target.value
+        searchText: value
       },
       () => {
         if (this.state.searchText === '') {
@@ -38,7 +40,7 @@ class Header extends Component {
     return (
       <HeaderContainer>
         <img
-          src="https://www.themoviedb.org/assets/2/v4/logos/primary-green-d70eebe18a5eb5b166d5c1ef0796715b8d1a2cbc698f96d311d62f894ae87085.svg"
+          src={logo}
           alt=""
           style={{
             display: 'block',

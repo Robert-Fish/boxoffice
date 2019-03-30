@@ -35,8 +35,7 @@ class FilmDetail extends Component {
       release_date,
       vote_average,
       runtime,
-      overview,
-      episode_run_time
+      overview
     } = this.props.selectedFilm;
 
     const { history } = this.props;
@@ -73,7 +72,8 @@ class FilmDetail extends Component {
 }
 const mapStateToProps = state => ({
   results: state.film.results,
-  selectedFilm: state.film.selectedFilm
+  selectedFilm: state.film.selectedFilm,
+  ...state
 });
 
 export default connect(

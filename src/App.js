@@ -25,10 +25,10 @@ class App extends Component {
               exact
               path="/"
               render={() => (
-                <Fragment>
+                <>
                   <Header />
                   <FilmGrid />
-                </Fragment>
+                </>
               )}
             />
             <Route path="/listing/:filmid/:mediatype" component={FilmDetail} />
