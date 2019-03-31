@@ -11,6 +11,7 @@ import {
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class FilmGrid extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class FilmGrid extends Component {
 
     return (
       <div className="container">
-        '<LatestMoviesTitle>Popular Movies</LatestMoviesTitle>
+        '<LatestMoviesTitle>Popular Movies & Shows</LatestMoviesTitle>
         <div className="row">
           {results.map(film => {
             const {
@@ -48,10 +49,6 @@ class FilmGrid extends Component {
                     pathname: `/listing/id:${id}/type:${
                       media_type !== undefined ? media_type : 'movie'
                     }`
-
-                    // hash: `media_type=${
-                    //   media_type !== undefined ? media_type : 'movie'
-                    // }`
                   }}
                   style={{ textDecoration: 'none' }}
                 >
@@ -87,5 +84,9 @@ class FilmGrid extends Component {
 const mapStateToProps = state => ({
   results: state.film.results
 });
+
+FilmGrid.propTypes = {
+  results: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps)(FilmGrid);

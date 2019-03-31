@@ -1,5 +1,5 @@
 // Basic imports
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './sass/App.scss';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';

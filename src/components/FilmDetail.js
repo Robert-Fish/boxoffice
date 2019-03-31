@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import {
   BackdropContainer,
   PosterContainer,
@@ -35,7 +35,8 @@ class FilmDetail extends Component {
       release_date,
       vote_average,
       runtime,
-      overview
+      overview,
+      episode_run_time
     } = this.props.selectedFilm;
 
     const { history } = this.props;

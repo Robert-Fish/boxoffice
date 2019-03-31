@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import {
   HeaderContainer,
-  SearchBar,
-  SearchBarContainer
+  SearchBar
+  // SearchBarContainer
 } from '../styles/HeaderStyles';
 import { connect } from 'react-redux';
 import { getLatestFilms, searchFilms } from '../actions/filmActions';
 
 import logo from '../assets/logo.svg';
-import searchIcon from '../assets/searchIcon.png';
+// import searchIcon from '../assets/searchIcon.png';
 
 class Header extends Component {
   constructor() {
@@ -53,6 +53,7 @@ class Header extends Component {
           onChange={this.onChange}
           value={this.state.searchText}
           name="searchText"
+          autoFocus
         />
         {/* <img
             src={searchIcon}
