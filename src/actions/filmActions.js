@@ -4,6 +4,7 @@ import { apiKey } from '../config/keys';
 import { BASE_API_URL } from '../config/config';
 
 export const getLatestFilms = () => dispatch => {
+  // Fetches latest movies and tv shows from tmdb api endpoint
   return axios
     .get(
       `${BASE_API_URL}/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1`
@@ -17,6 +18,7 @@ export const getLatestFilms = () => dispatch => {
 };
 
 export const searchFilms = queryText => dispatch => {
+  // Searches tmdb api using queryText given by user
   return axios
     .get(
       `${BASE_API_URL}/search/multi?api_key=${apiKey}&language=en-US&query=${queryText}&page=1&include_adult=false`
@@ -30,6 +32,7 @@ export const searchFilms = queryText => dispatch => {
 };
 
 export const getFilmDetails = (filmID, type) => dispatch => {
+  // Uses film detail api endpoint to fetch more details about given media ID
   if (type === 'movie') {
     return axios
       .get(`${BASE_API_URL}/movie/${filmID}?api_key=${apiKey}`)

@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import {
-  HeaderContainer,
-  SearchBar
-  // SearchBarContainer
-} from '../styles/HeaderStyles';
+import { HeaderContainer, SearchBar } from '../styles/HeaderStyles';
 import { connect } from 'react-redux';
 import { getLatestFilms, searchFilms } from '../actions/filmActions';
+import PropTypes from 'prop-types';
 
 import logo from '../assets/logo.svg';
-// import searchIcon from '../assets/searchIcon.png';
 
 class Header extends Component {
   constructor() {
@@ -19,6 +15,7 @@ class Header extends Component {
   }
 
   componentDidMount = () => {
+    // Fetches the lastest movies on component mount
     this.props.getLatestFilms();
   };
 
@@ -29,10 +26,13 @@ class Header extends Component {
         searchText: value
       },
       () => {
+        // Searches films and tvs shows using local state else if searchbar is empty, repopulate grid with popular movies and shows.
+        const { getLatestFilms, searchFilms } = this.props;
+
         if (this.state.searchText === '') {
-          this.props.getLatestFilms();
+          getLatestFilms();
         }
-        this.props.searchFilms(this.state.searchText);
+        searchFilms(this.state.searchText);
       }
     );
   };
@@ -55,15 +55,15 @@ class Header extends Component {
           name="searchText"
           autoFocus
         />
-        {/* <img
-            src={searchIcon}
-            alt=""
-            style={{ width: '25px', height: '25px' }}
-          /> */}
       </HeaderContainer>
     );
   }
 }
+
+Header.propTypes = {
+  getLatestFilms: PropTypes.func.isRequired,
+  searchFilms: PropTypes.func.isRequired
+};
 
 export default connect(
   null,

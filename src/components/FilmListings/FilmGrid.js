@@ -28,6 +28,9 @@ class FilmGrid extends Component {
       <div className="container">
         '<LatestMoviesTitle>Popular Movies & Shows</LatestMoviesTitle>
         <div className="row">
+          {/* 
+           Maps results array to responsive grid and feeds given fields to the stated ui elements(img, label).
+        */}
           {results.map(film => {
             const {
               vote_average,
